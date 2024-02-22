@@ -14,7 +14,7 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 
 # Source git `prompt for PS1
-source '/Users/wren/.git-prompt.sh'
+source "${HOME}/.git-prompt.sh"
 
 # Added brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
