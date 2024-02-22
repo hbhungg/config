@@ -1,12 +1,3 @@
-# Homebrew path
-export PATH=/opt/homebrew/bin:$PATH
-# Golang path
-export PATH=/Users/wren/go/bin:$PATH
-# User path
-export PATH=/Users/wren/bin:$PATH
-# Java path
-export JAVA_HOME="JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home"
-
 # append to the history file, don't overwrite it
 HISTCONTROL=ignoreboth
 shopt -s histappend
@@ -14,7 +5,13 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 
 # Source git `prompt for PS1
-source '/Users/wren/.git-prompt.sh'
+if [ -f ~/.git-prompt.sh ]; then
+  GIT_PROMPT_ONLY_IN_REPO=1
+  source "${HOME}/.git-prompt.sh"
+fi
+
+# Git autocomplete
+[[ -r "${HOME}/.git-completion.bash" ]] && . "${HOME}/.git-completion.bash"
 
 # Added brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -47,9 +44,11 @@ export VISUAL='nvim'
 # Autocomplete
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
+complete -C 'aws_completer' aws
 
 # Alias
 alias grep='grep --color=auto'
+alias vi='nvim'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias ls='ls --color'
@@ -59,12 +58,11 @@ alias jn='jupyter notebook'
 alias jb='jupyter lab'
 alias tce='conda activate $(tmux show-environment CONDA_DEFAULT_ENV | sed "s:^.*=::")'
 alias ctags="`brew --prefix`/bin/ctags"
-alias nv='nvim'
-alias vi='nvim'
 alias cat='bat --theme=base16 --paging=never'
 alias wgit='watch -n 0.5 --color git -c color.status=always status'
-# Short alias for activating env
-alias senv="source venv/bin/activate"
+alias wlog='watch -n 0.5 --color -n1 git --no-pager log --color --oneline --graph -20'
+alias activate='source venv/bin/activate'
+alias tt='tree'
 # Delta with git, accept args just like git diff
 function ddiff() {
   git diff $* | delta --features side-by-side --syntax-theme=ansi --paging never --file-style 'red bold ul'
@@ -75,10 +73,10 @@ function ddiff() {
 export FZF_DEFAULT_OPTS='
     --color=hl:#dc322f,hl+:#dc322f,pointer:#FF0000'
 
-# Rust?
-export PATH="/Users/wren/miniforge3/bin:$PATH"
 . "$HOME/.cargo/env"
 
-if [ -n "$VIRTUAL_ENV" ]; then
-    source $VIRTUAL_ENV/bin/activate;
-fi
+# PATH
+export MODULAR_HOME="/Users/hung/.modular"
+export PATH="/Users/hung/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+export PATH="$HOME/bin/:$PATH"

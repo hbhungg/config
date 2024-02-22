@@ -1,7 +1,7 @@
 " Plugins
 call plug#begin()
 " LSP
-Plug 'neovim/nvim-lspconfig'  
+Plug 'neovim/nvim-lspconfig'
 " Autocomplete
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -31,12 +31,12 @@ lua require('comment')
 
 " Syntax highlighting (off cause we have LSP and treesitter, turn this on if dont have)
 syntax on
-color peachpuff
+color peachpuff 
 
 " Better highlight word color
 hi Search ctermfg=Red ctermbg=LightYellow
 hi Visual cterm=inverse ctermbg=black
-" Cursor line highlight  
+" Cursor line highlight
 hi CursorLine cterm=underline
 
 " Set vim clipboard to use system clipboard
@@ -57,7 +57,7 @@ set number relativenumber
 set laststatus=1
 
 " Seperator
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 
 " Instant esc, uncomment if the esc feel slow but will probably cause by other stuff
 set ttimeoutlen=10 timeoutlen=1000
@@ -109,3 +109,5 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 " Vim will boost your productivity they said...
 nnoremap <leader>r :exec "source $MYVIMRC"<cr>
+" Custom command
+command! -range=% Dws <line1>,<line2>s/\s\+$//e

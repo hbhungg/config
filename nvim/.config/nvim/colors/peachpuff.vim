@@ -49,35 +49,26 @@ hi Error term=reverse cterm=bold ctermfg=7 ctermbg=1 gui=bold guifg=White guibg=
 
 " Tree-sitter highlight. (IDK why i havent move over to vscode, cause setting this up is a pain)
 "Misc
-hi TSPunctDelimiter ctermfg=White
-hi TSPunctBracket ctermfg=White
-hi TSPunctSpecial ctermfg=White
+hi @punctuation ctermfg=White
 " Python block comment
-hi TSComment ctermfg=DarkGray
-hi @spell.python ctermfg=DarkGray
+hi @comment ctermfg=DarkGray
 
 " Highlight for special comment tags
-hi TSNote cterm=bold ctermfg=Black ctermbg=LightBlue
-hi TSDanger cterm=bold ctermfg=White ctermbg=Red
+hi @text.note cterm=bold ctermfg=Black ctermbg=LightBlue
 
 " Function, class and method
-hi TSFunction ctermfg=DarkCyan
-hi TSFunctionCall ctermfg=DarkCyan
-hi TSFuncBuiltin ctermfg=DarkCyan
-hi TSParameterReference ctermfg=White
-hi TSConstructor ctermfg=DarkCyan
-hi TSMethod ctermfg=DarkCyan
-hi TSMethodCall ctermfg=DarkCyan
+hi @function ctermfg=DarkCyan
+hi @function.builtin ctermfg=DarkCyan
+hi @parameter ctermfg=White
+hi @constructor ctermfg=DarkCyan
+hi @method ctermfg=DarkCyan
 
 " Constant
-hi TSBoolean ctermfg=Magenta
-hi TSConstant ctermfg=LightRed
-hi TSConstantBuiltin ctermfg=LightRed
-hi TSNamespace ctermfg=DarkCyan
+hi @boolean ctermfg=Magenta
+hi @constant ctermfg=LightRed
+hi @namespace ctermfg=DarkCyan
 
 " Variable
-hi TSVariable ctermfg=White
-hi TSVariableBuiltin ctermfg=White
-hi TSParameter ctermfg=White
-hi TSField ctermfg=White
-hi TSProperty ctermfg=White
+hi @variable ctermfg=White
+hi @field ctermfg=white
+hi @property ctermfg=white
