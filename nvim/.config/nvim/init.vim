@@ -31,7 +31,7 @@ lua require('comment')
 
 " Syntax highlighting (off cause we have LSP and treesitter, turn this on if dont have)
 syntax on
-color peachpuff
+color peachpuff 
 
 " Better highlight word color
 hi Search ctermfg=Red ctermbg=LightYellow
