@@ -1,7 +1,7 @@
 " Plugins
 call plug#begin()
 " LSP
-Plug 'neovim/nvim-lspconfig'  
+Plug 'neovim/nvim-lspconfig'
 " Autocomplete
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -36,7 +36,7 @@ color peachpuff
 " Better highlight word color
 hi Search ctermfg=Red ctermbg=LightYellow
 hi Visual cterm=inverse ctermbg=black
-" Cursor line highlight  
+" Cursor line highlight
 hi CursorLine cterm=underline
 
 " Set vim clipboard to use system clipboard
@@ -57,7 +57,7 @@ set number relativenumber
 set laststatus=1
 
 " Seperator
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 
 " Instant esc, uncomment if the esc feel slow but will probably cause by other stuff
 set ttimeoutlen=10 timeoutlen=1000

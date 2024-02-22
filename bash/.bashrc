@@ -8,7 +8,7 @@ HISTFILESIZE=2000
 # Source git `prompt for PS1
 if [ -f ~/.git-prompt.sh ]; then
   GIT_PROMPT_ONLY_IN_REPO=1
-  source '/Users/hung/.git-prompt.sh'
+  source "${HOME}/.git-prompt.sh"
 fi
 
 # Git autocomplete
