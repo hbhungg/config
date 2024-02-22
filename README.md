@@ -1,3 +1,5 @@
-just some config files 
+Standard install
 
-this branch is for macos (duh)
+```bash
+stow bash tmux nvim vim
+```
