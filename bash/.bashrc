@@ -1,4 +1,3 @@
-export PATH="$HOME/bin/:$PATH"
 # append to the history file, don't overwrite it
 HISTCONTROL=ignoreboth
 shopt -s histappend
@@ -12,9 +11,7 @@ if [ -f ~/.git-prompt.sh ]; then
 fi
 
 # Git autocomplete
-if [ -f ~/.git-completion.bash ]; then
-  . ~/.git-completion.bash
-fi
+[[ -r "${HOME}/.git-completion.bash" ]] && . "${HOME}/.git-completion.bash"
 
 # Added brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -71,11 +68,15 @@ function ddiff() {
   git diff $* | delta --features side-by-side --syntax-theme=ansi --paging never --file-style 'red bold ul'
 }
 
-if [ -n "$VIRTUAL_ENV" ]; then
-    source $VIRTUAL_ENV/bin/activate;
-fi
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_OPTS='
+    --color=hl:#dc322f,hl+:#dc322f,pointer:#FF0000'
+
 . "$HOME/.cargo/env"
 
+# PATH
 export MODULAR_HOME="/Users/hung/.modular"
 export PATH="/Users/hung/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+export PATH="$HOME/bin/:$PATH"
