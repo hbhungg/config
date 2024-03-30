@@ -2,7 +2,7 @@
 [user]
 # Please adapt and uncomment the following lines:
   name = hbhungg
-  email = hung.ba.huynh@proton.me
+  email = ba.hung.huynh@proton.me
 [core]
 	editor = nvim
 [push]

@@ -10,10 +10,10 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 " Tree-sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/playground'
+" Plug 'nvim-treesitter/playground'
 " Comment
 Plug 'terrortylor/nvim-comment'
 call plug#end()
@@ -23,15 +23,8 @@ lua require('treesitter')
 lua require('comment')
 
 " Everything from down here does not required plugins
-
-" Let tmux change its pane name base on vim file name
-" That is currectly in focus
-" autocmd BufEnter,FileReadPost,BufNewFile,FocusGained * call system("tmux rename-window " . expand("%:t"))
-" autocmd VimLeave * call system("tmux setw automatic-rename")
-
-" Syntax highlighting (off cause we have LSP and treesitter, turn this on if dont have)
 syntax on
-color peachpuff 
+color peachpuff
 
 " Better highlight word color
 hi Search ctermfg=Red ctermbg=LightYellow
