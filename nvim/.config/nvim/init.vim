@@ -24,7 +24,7 @@ lua require('comment')
 
 " Everything from down here does not required plugins
 syntax on
-color peachpuff
+color my-peachpuff
 
 " Better highlight word color
 hi Search ctermfg=Red ctermbg=LightYellow
