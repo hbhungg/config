@@ -9,7 +9,7 @@ let colors_name = "my-peachpuff"
 
 hi Normal guibg=PeachPuff guifg=Black
 
-hi SpecialKey term=bold ctermfg=4 guifg=Blue
+" hi SpecialKey term=bold ctermfg=4 guifg=Blue
 hi NonText term=bold cterm=bold ctermfg=4 gui=bold guifg=Blue
 hi Directory term=bold ctermfg=4 guifg=Blue
 hi ErrorMsg term=standout cterm=bold ctermfg=7 ctermbg=1 gui=bold guifg=White guibg=Red
@@ -48,10 +48,13 @@ hi Ignore cterm=bold ctermfg=7 guifg=bg
 hi Error term=reverse cterm=bold ctermfg=7 ctermbg=1 gui=bold guifg=White guibg=Red
 
 " Tree-sitter highlight. (IDK why i havent move over to vscode, cause setting this up is a pain)
-"Misc
+" Misc
 hi @punctuation ctermfg=White
 " Python block comment
 hi @comment ctermfg=DarkGray
+hi @spell ctermfg=DarkGray
+hi @string.special.url.comment ctermfg=DarkGray
+hi @nospell ctermfg=DarkGray cterm=underline,bold
 
 " Highlight for special comment tags
 hi @text.note cterm=bold ctermfg=Black ctermbg=LightBlue
@@ -59,16 +62,15 @@ hi @text.note cterm=bold ctermfg=Black ctermbg=LightBlue
 " Function, class and method
 hi @function ctermfg=DarkCyan
 hi @function.builtin ctermfg=DarkCyan
-hi @parameter ctermfg=White
 hi @constructor ctermfg=DarkCyan
 hi @method ctermfg=DarkCyan
 
 " Constant
 hi @boolean ctermfg=Magenta
-hi @constant ctermfg=LightRed
+hi @constant ctermfg=Magenta
 hi @namespace ctermfg=DarkCyan
 
 " Variable
 hi @variable ctermfg=White
-hi @field ctermfg=white
-hi @property ctermfg=white
+hi @field ctermfg=White
+hi @property ctermfg=White
