@@ -28,6 +28,7 @@ get_exit_status(){
 }
 export PS1='\[\e[01;38m\]\u@\h\[\e[00m\] \[\e[01;32m\]\w\[\e[00m\]\[\e[00;35m\]$(__git_ps1)\[\e[00m\] \[\e[01;31m\]» $(get_exit_status)\[\e[00m\]' 
 export PS2='» '
+export TERM=xterm-256color
 
 # I dunno
 shopt -s checkwinsize
@@ -37,6 +38,7 @@ set -o vi
 
 # LS color
 export LSCOLORS=GxBxhxDxfxhxhxhxhxcxcx
+export LS_COLORS=GxBxhxDxfxhxhxhxhxcxcx
 # Default editor and visual
 export EDITOR='nvim'
 export VISUAL='nvim'
