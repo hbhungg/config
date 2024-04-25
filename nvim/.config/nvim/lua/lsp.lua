@@ -1,7 +1,15 @@
 -- LSP --
 -- Turn off all of the diagnostic
 -- We only need the jumping capability
-vim.diagnostic.disable()
+-- vim.diagnostic.disable()
+vim.opt.signcolumn='auto'
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+})
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

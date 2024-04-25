@@ -74,3 +74,15 @@ hi @namespace ctermfg=DarkCyan
 hi @variable ctermfg=White
 hi @field ctermfg=White
 hi @property ctermfg=White
+
+" LSP
+hi DiagnosticError cterm=underline ctermfg=Red
+hi DiagnosticWarn cterm=underline ctermfg=Yellow
+hi DiagnosticInfo cterm=underline ctermfg=Blue
+hi DiagnosticHint cterm=underline ctermfg=DarkGreen
+hi DiagnosticUnnecessary cterm=underdotted ctermfg=DarkGray
+
+" hi! LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+" hi! LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+" hi! LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+hi! link SignColumn Normal

@@ -10,17 +10,20 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
+Plug 'nvim-telescope/telescope.nvim'
 " Tree-sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'nvim-treesitter/playground'
+Plug 'nvim-treesitter/playground'
 " Comment
 Plug 'terrortylor/nvim-comment'
+" File
+Plug 'stevearc/oil.nvim'
 call plug#end()
 
 lua require('lsp')
 lua require('treesitter')
 lua require('comment')
+lua require('_oil')
 
 " Everything from down here does not required plugins
 syntax on
@@ -46,11 +49,21 @@ set backspace=indent,eol,start
 " Line numbers, hybrid relative
 set number relativenumber
 
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
 " Status bar
-set laststatus=1
+set laststatus=2
+set statusline=
+set statusline+=%f 
+set statusline+=\ [%{GitBranch()}]
+set statusline+=%=
+set statusline+=%y\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ \ \ %l,%c\ \ \ %p%%\ 
 
 " Seperator
-set fillchars+=vert:\
+set fillchars+=vert:\ 
 
 " Instant esc, uncomment if the esc feel slow but will probably cause by other stuff
 set ttimeoutlen=10 timeoutlen=1000
@@ -100,7 +113,11 @@ nnoremap <leader>- :exec "vertical resize ". (winwidth(0) * 6/7)<CR>
 " Telescope
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " Vim will boost your productivity they said...
 nnoremap <leader>r :exec "source $MYVIMRC"<cr>
 " Custom command
 command! -range=% Dws <line1>,<line2>s/\s\+$//e
+" Oil
+nnoremap <leader>t :topleft vsplit<CR>:Oil .<CR>
