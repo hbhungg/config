@@ -1,27 +1,3 @@
-"" Fuzzy Find
-set rtp+=~/opt/homebrew/opt/fzf
-" Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" Let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'ycm-core/YouCompleteMe'
-"Plugin 'junegunn/fzf'
-"Plugin 'junegunn/fzf.vim'
-call vundle#end()
-
-" Let tmux change its pane name base on vim file name
-" That is currectly in focus
-autocmd BufEnter,FileReadPost,BufNewFile,BufEnter * call system("tmux rename-window '" . expand("%:t") . "'")
-" Clean up when leaving vim
-autocmd VimLeave * call system("tmux setw automatic-rename")
-
-" Something something YouCompleteMe
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion= 1
-" No more autocomplete highlighting
-let g:ycm_show_diagnostics_ui = 0
-
 " Syntax highlighting
 syntax on
 color peachpuff
