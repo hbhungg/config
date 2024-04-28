@@ -121,3 +121,8 @@ nnoremap <leader>r :exec "source $MYVIMRC"<cr>
 command! -range=% Dws <line1>,<line2>s/\s\+$//e
 " Oil
 nnoremap <leader>t :topleft vsplit<CR>:Oil .<CR>
+" Highlight yanked text
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=100 }
+augroup END
