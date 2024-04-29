@@ -54,6 +54,7 @@ hi @punctuation ctermfg=White
 hi @comment ctermfg=DarkGray
 hi @spell ctermfg=DarkGray
 hi @string.special.url.comment ctermfg=DarkGray
+hi @string.documentation ctermfg=DarkGray
 hi @nospell ctermfg=DarkGray cterm=underline,bold
 
 " Highlight for special comment tags
