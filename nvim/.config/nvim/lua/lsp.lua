@@ -22,6 +22,10 @@ vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<C
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  if client.name == 'ruff_lsp' then
+    -- Disable hover in favor of Pyright
+    client.server_capabilities.hoverProvider = false
+  end
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -94,7 +98,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'gopls', 'rust_analyzer', 'ccls' , 'tsserver' }
+local servers = { 'gopls', 'rust_analyzer', 'ccls' , 'tsserver' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
      on_attach = on_attach,
@@ -106,3 +110,15 @@ for _, lsp in pairs(servers) do
   }
 end
 
+require('lspconfig').ruff_lsp.setup {
+  on_attach = on_attach,
+}
+require('lspconfig').pyright.setup {
+  on_attach = on_attach,
+  settings = {
+    pyright = {
+      -- Using Ruff's import organizer
+      disableOrganizeImports = true,
+    },
+  },
+}
