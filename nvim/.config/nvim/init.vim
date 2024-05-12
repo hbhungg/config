@@ -18,6 +18,8 @@ Plug 'nvim-treesitter/playground'
 Plug 'terrortylor/nvim-comment'
 " File
 Plug 'stevearc/oil.nvim'
+" vim and tmux play nice
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 lua require('lsp')
@@ -88,11 +90,7 @@ command! -bar -nargs=* -complete=file -range=% -bang Wq <line1>,<line2>wq<bang> 
 
 " Map leader
 let mapleader="\<space>"
-" Some keybindings
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+
 " Better indenting while in visual and normal mode
 vnoremap > >gv
 vnoremap < <gv
@@ -111,7 +109,7 @@ nnoremap <leader>] <C-W>]
 nnoremap <leader>= :exec "vertical resize ". (winwidth(0) * 7/6)<CR>
 nnoremap <leader>- :exec "vertical resize ". (winwidth(0) * 6/7)<CR>
 " Telescope
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
@@ -123,6 +121,9 @@ command! -range=% Dws <line1>,<line2>s/\s\+$//e
 nnoremap <leader>t :topleft vsplit<CR>:Oil .<CR>
 " Highlight yanked text
 augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=100 }
+  autocmd!
+  au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=100 }
 augroup END
+
+" Format
+nnoremap <leader>fm <cmd>lua vim.lsp.buf.format({async = true})<cr>
