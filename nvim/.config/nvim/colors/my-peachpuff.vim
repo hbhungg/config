@@ -62,7 +62,7 @@ hi @function ctermfg=DarkCyan
 hi @function.builtin ctermfg=DarkCyan
 hi @constructor ctermfg=DarkCyan
 hi @method ctermfg=DarkCyan
-hi @variable.builtin.self ctermfg=White
+hi @variable.builtin.python ctermfg=White
 
 " Constant
 hi @boolean ctermfg=Magenta
@@ -82,7 +82,7 @@ hi DiagnosticError cterm=underline ctermfg=Red
 hi DiagnosticWarn cterm=underline ctermfg=Yellow
 hi DiagnosticInfo cterm=underline ctermfg=Blue
 hi DiagnosticHint cterm=underline ctermfg=DarkGreen
-hi DiagnosticUnnecessary cterm=underdotted ctermfg=DarkGray
+hi DiagnosticUnnecessary ctermfg=DarkGray
 
 " hi! LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
 " hi! LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
