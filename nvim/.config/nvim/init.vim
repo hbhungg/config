@@ -32,8 +32,8 @@ syntax on
 color my-peachpuff
 
 " Better highlight word color
-hi Search ctermfg=Red ctermbg=LightYellow
-hi Visual cterm=inverse ctermbg=black
+" hi Search ctermfg=Red ctermbg=LightYellow
+" hi Visual cterm=inverse ctermbg=black
 " Cursor line highlight
 hi CursorLine cterm=underline
 
