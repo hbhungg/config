@@ -14,8 +14,6 @@ Plug 'nvim-telescope/telescope.nvim'
 " Tree-sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
-" Comment
-Plug 'terrortylor/nvim-comment'
 " File
 Plug 'stevearc/oil.nvim'
 " vim and tmux play nice
@@ -24,7 +22,6 @@ call plug#end()
 
 lua require('lsp')
 lua require('treesitter')
-lua require('comment')
 lua require('_oil')
 
 " Everything from down here does not required plugins
