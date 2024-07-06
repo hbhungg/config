@@ -122,5 +122,3 @@ augroup highlight_yank
   au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=100 }
 augroup END
 
-" Format
-nnoremap <leader>fm <cmd>lua vim.lsp.buf.format({async = true})<cr>

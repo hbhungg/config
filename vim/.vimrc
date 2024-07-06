@@ -1,6 +1,6 @@
 " Syntax highlighting
 syntax on
-color peachpuff
+color default
 " Green comments
 hi Comment ctermfg=darkgreen cterm=bold
 " Better highlight word color
