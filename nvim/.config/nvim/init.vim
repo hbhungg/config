@@ -122,3 +122,5 @@ augroup highlight_yank
   au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=100 }
 augroup END
 
+autocmd FileType sql setlocal commentstring=--\ %s
+
