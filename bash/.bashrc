@@ -65,6 +65,10 @@ alias wgit='watch -n 0.5 --color git -c color.status=always status'
 alias wlog='watch -n 0.5 --color -n1 git --no-pager log --color --oneline --graph -20'
 alias activate='source venv/bin/activate'
 alias tt='tree'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias uuidgen='uuidgen | tr A-F a-f'
+fi
+
 # Delta with git, accept args just like git diff
 function ddiff() {
   git diff $* | delta --features side-by-side --syntax-theme=ansi --paging never --file-style 'red bold ul'

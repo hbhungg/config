@@ -59,10 +59,13 @@ hi @text.note cterm=bold ctermfg=Black ctermbg=LightBlue
 
 " Function, class and method
 hi @function ctermfg=DarkCyan
+hi @function.call ctermfg=DarkCyan
 hi @function.builtin ctermfg=DarkCyan
+hi @variable.builtin.python ctermfg=White
 hi @constructor ctermfg=DarkCyan
 hi @method ctermfg=DarkCyan
-hi @variable.builtin.python ctermfg=White
+hi @attribute ctermfg=DarkCyan
+hi @attribute.python ctermfg=DarkCyan
 
 " Constant
 hi @boolean ctermfg=Magenta
