@@ -18,6 +18,7 @@ Plug 'nvim-treesitter/playground'
 Plug 'stevearc/oil.nvim'
 " vim and tmux play nice
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'Mofiqul/vscode.nvim'
 call plug#end()
 
 lua require('lsp')
@@ -26,7 +27,9 @@ lua require('_oil')
 
 " Everything from down here does not required plugins
 syntax on
-color my-peachpuff
+" color my-peachpuff
+color vscode
+set bg=dark
 
 " Better highlight word color
 " hi Search ctermfg=Red ctermbg=LightYellow
@@ -62,7 +65,7 @@ set statusline+=%y\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\ \ \ %l,%c\ \ \ %p%%\ 
 
 " Seperator
-set fillchars+=vert:\ 
+"set fillchars+=vert:\ 
 
 " Instant esc, uncomment if the esc feel slow but will probably cause by other stuff
 set ttimeoutlen=10 timeoutlen=1000
