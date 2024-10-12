@@ -98,7 +98,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'gopls', 'rust_analyzer', 'ccls' , 'tsserver' }
+local servers = { 'gopls', 'rust_analyzer', 'ccls' , 'ts_ls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
      on_attach = on_attach,
@@ -110,9 +110,9 @@ for _, lsp in pairs(servers) do
   }
 end
 
-require('lspconfig').ruff_lsp.setup {
-  on_attach = on_attach,
-}
+-- require('lspconfig').ruff_lsp.setup {
+--   on_attach = on_attach,
+-- }
 require('lspconfig').pyright.setup {
   on_attach = on_attach,
   settings = {
@@ -120,5 +120,12 @@ require('lspconfig').pyright.setup {
       -- Using Ruff's import organizer
       disableOrganizeImports = true,
     },
+    python = {
+      analysis = {
+        diagnosticSeverityOverrides = {
+          reportPrivateImportUsage = "none",
+        }
+      }
+    }
   },
 }

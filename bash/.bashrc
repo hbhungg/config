@@ -82,4 +82,8 @@ export MODULAR_HOME="/Users/hung/.modular"
 export PATH="/Users/hung/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 export PATH="$HOME/bin/:$PATH"
-export PATH="/sbin/:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="/bin:/usr/bin:/usr/local/bin:/usr/sbin:/sbin:$PATH"
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.1.3
