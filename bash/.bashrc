@@ -60,7 +60,7 @@ alias jn='jupyter notebook'
 alias jb='jupyter lab'
 alias tce='conda activate $(tmux show-environment CONDA_DEFAULT_ENV | sed "s:^.*=::")'
 alias ctags="`brew --prefix`/bin/ctags"
-alias cat='bat --theme=base16 --paging=never'
+alias cat='bat --theme="Visual Studio Dark+" --paging=never'
 alias wgit='watch -n 0.5 --color git -c color.status=always status'
 alias wlog='watch -n 0.5 --color -n1 git --no-pager log --color --oneline --graph -20'
 alias activate='source venv/bin/activate'
