@@ -1,7 +1,7 @@
 [font]
 size = 12.0
-offset.x = 1
-offset.y = 0
+offset.x = 0
+offset.y = 3
 
 [font.normal]
 family = "SF Mono"
@@ -51,3 +51,6 @@ dynamic_padding = true
 
 [mouse]
 bindings = [{ mouse = "Middle", action = "PasteSelection" }]
+
+[keyboard]
+bindings = [ { key = "Tab", mods = "Control", action = "SelectNextTab" } ]
