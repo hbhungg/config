@@ -2,6 +2,7 @@
 -- Turn off all of the diagnostic
 -- We only need the jumping capability
 -- vim.diagnostic.disable()
+
 vim.opt.signcolumn='auto'
 vim.diagnostic.config({
   virtual_text = true,
@@ -9,7 +10,10 @@ vim.diagnostic.config({
   underline = true,
   update_in_insert = false,
   severity_sort = false,
+  float = { border = 'rounded' },
 })
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'})
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = 'rounded'})
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

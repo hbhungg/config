@@ -27,7 +27,6 @@ lua require('_oil')
 
 " Everything from down here does not required plugins
 syntax on
-" color my-peachpuff
 color vscode
 set bg=dark
 
@@ -56,6 +55,7 @@ function! GitBranch()
 endfunction
 
 " Status bar
+hi StatusLine guibg=LightGray guifg=Black
 set laststatus=2
 set statusline=
 set statusline+=%f 
@@ -65,7 +65,7 @@ set statusline+=%y\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\ \ \ %l,%c\ \ \ %p%%\ 
 
 " Seperator
-"set fillchars+=vert:\ 
+" set fillchars+=vert:\ 
 
 " Instant esc, uncomment if the esc feel slow but will probably cause by other stuff
 set ttimeoutlen=10 timeoutlen=1000
@@ -124,4 +124,6 @@ augroup highlight_yank
   autocmd!
   au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=100 }
 augroup END
+
+autocmd FileType sql setlocal commentstring=--\ %s
 
