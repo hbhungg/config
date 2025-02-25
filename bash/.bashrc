@@ -1,5 +1,5 @@
 # append to the history file, don't overwrite it
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
@@ -86,6 +86,7 @@ export MODULAR_HOME="/Users/hung/.modular"
 export PATH="/Users/hung/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 export PATH="$HOME/bin/:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/bin:/usr/bin:/usr/local/bin:/usr/sbin:/sbin:$PATH"
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
