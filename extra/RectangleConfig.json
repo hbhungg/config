@@ -1,0 +1,236 @@
+{
+  "shortcuts" : {
+    "bottomHalf" : {
+      "modifierFlags" : 1572864,
+      "keyCode" : 125
+    },
+    "larger" : {
+      "modifierFlags" : 786432,
+      "keyCode" : 24
+    },
+    "firstTwoThirds" : {
+      "keyCode" : 14,
+      "modifierFlags" : 786432
+    },
+    "centerThird" : {
+      "keyCode" : 3,
+      "modifierFlags" : 786432
+    },
+    "nextDisplay" : {
+      "modifierFlags" : 1835008,
+      "keyCode" : 124
+    },
+    "lastThird" : {
+      "modifierFlags" : 786432,
+      "keyCode" : 5
+    },
+    "bottomRight" : {
+      "modifierFlags" : 786432,
+      "keyCode" : 40
+    },
+    "firstThird" : {
+      "keyCode" : 2,
+      "modifierFlags" : 786432
+    },
+    "topHalf" : {
+      "keyCode" : 126,
+      "modifierFlags" : 1572864
+    },
+    "restore" : {
+      "keyCode" : 51,
+      "modifierFlags" : 786432
+    },
+    "smaller" : {
+      "keyCode" : 27,
+      "modifierFlags" : 786432
+    },
+    "lastTwoThirds" : {
+      "modifierFlags" : 1572864,
+      "keyCode" : 17
+    },
+    "previousDisplay" : {
+      "modifierFlags" : 1835008,
+      "keyCode" : 123
+    },
+    "bottomLeft" : {
+      "keyCode" : 38,
+      "modifierFlags" : 786432
+    },
+    "leftHalf" : {
+      "keyCode" : 123,
+      "modifierFlags" : 1572864
+    },
+    "center" : {
+      "keyCode" : 8,
+      "modifierFlags" : 786432
+    },
+    "maximizeHeight" : {
+      "modifierFlags" : 917504,
+      "keyCode" : 126
+    },
+    "rightHalf" : {
+      "modifierFlags" : 1572864,
+      "keyCode" : 124
+    },
+    "maximize" : {
+      "keyCode" : 36,
+      "modifierFlags" : 786432
+    },
+    "topRight" : {
+      "modifierFlags" : 786432,
+      "keyCode" : 34
+    },
+    "topLeft" : {
+      "keyCode" : 32,
+      "modifierFlags" : 786432
+    }
+  },
+  "bundleId" : "com.knollsoft.Rectangle",
+  "defaults" : {
+    "ignoredSnapAreas" : {
+      "int" : 0
+    },
+    "attemptMatchOnNextPrevDisplay" : {
+      "int" : 0
+    },
+    "centeredDirectionalMove" : {
+      "int" : 0
+    },
+    "footprintColor" : {
+
+    },
+    "footprintBorderWidth" : {
+      "float" : 2
+    },
+    "windowSnapping" : {
+      "int" : 0
+    },
+    "minimumWindowHeight" : {
+      "float" : 0
+    },
+    "screenEdgeGapLeft" : {
+      "float" : 0
+    },
+    "screenEdgeGapTop" : {
+      "float" : 0
+    },
+    "todoSidebarWidth" : {
+      "float" : 400
+    },
+    "alternateDefaultShortcuts" : {
+      "bool" : true
+    },
+    "fullIgnoreBundleIds" : {
+
+    },
+    "screenEdgeGapRight" : {
+      "float" : 0
+    },
+    "todo" : {
+      "int" : 0
+    },
+    "footprintFade" : {
+      "int" : 0
+    },
+    "relaunchOpensMenu" : {
+      "bool" : false
+    },
+    "todoMode" : {
+      "bool" : false
+    },
+    "snapEdgeMarginBottom" : {
+      "float" : 5
+    },
+    "obtainWindowOnClick" : {
+      "int" : 0
+    },
+    "minimumWindowWidth" : {
+      "float" : 0
+    },
+    "launchOnLogin" : {
+      "bool" : true
+    },
+    "unsnapRestore" : {
+      "int" : 0
+    },
+    "showAllActionsInMenu" : {
+      "int" : 0
+    },
+    "curtainChangeSize" : {
+      "int" : 0
+    },
+    "footprintAlpha" : {
+      "float" : 0.3
+    },
+    "snapEdgeMarginTop" : {
+      "float" : 5
+    },
+    "specifiedHeight" : {
+      "float" : 1050
+    },
+    "snapEdgeMarginLeft" : {
+      "float" : 5
+    },
+    "altThirdCycle" : {
+      "int" : 0
+    },
+    "todoApplication" : {
+
+    },
+    "subsequentExecutionMode" : {
+      "int" : 1
+    },
+    "notifiedOfProblemApps" : {
+      "bool" : false
+    },
+    "hideMenubarIcon" : {
+      "bool" : false
+    },
+    "centerHalfCycles" : {
+      "int" : 0
+    },
+    "screenEdgeGapBottom" : {
+      "float" : 0
+    },
+    "traverseSingleScreen" : {
+      "int" : 0
+    },
+    "snapModifiers" : {
+      "int" : 0
+    },
+    "sizeOffset" : {
+      "float" : 0
+    },
+    "snapEdgeMarginRight" : {
+      "float" : 5
+    },
+    "specifiedWidth" : {
+      "float" : 1680
+    },
+    "moveCursorAcrossDisplays" : {
+      "int" : 0
+    },
+    "almostMaximizeHeight" : {
+      "float" : 0
+    },
+    "gapSize" : {
+      "float" : 0
+    },
+    "allowAnyShortcut" : {
+      "bool" : true
+    },
+    "resizeOnDirectionalMove" : {
+      "bool" : false
+    },
+    "SUEnableAutomaticChecks" : {
+      "bool" : false
+    },
+    "almostMaximizeWidth" : {
+      "float" : 0
+    },
+    "disabledApps" : {
+
+    }
+  },
+  "version" : "54"
+}
