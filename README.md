@@ -3,7 +3,7 @@
 stow bash tmux nvim git vim
 ```
 
-### For karbinger and linearmouse
+### For karabiner and linearmouse
 ```bash
 stow misc
 ```
