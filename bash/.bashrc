@@ -68,6 +68,7 @@ alias tt='tree'
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias uuidgen='uuidgen | tr A-F a-f'
 fi
+alias sshls='cat ~/.ssh/config'
 
 # Delta with git, accept args just like git diff
 function ddiff() {
