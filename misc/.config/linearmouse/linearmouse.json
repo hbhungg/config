@@ -1,13 +1,14 @@
 {
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.9.5",
   "schemes" : [
     {
-      "pointer" : {
-        "acceleration" : 2.188,
-        "disableAcceleration" : true
+      "if" : {
+        "device" : {
+          "category" : "mouse"
+        }
       },
-      "buttons" : {
-        "universalBackForward" : true
+      "pointer" : {
+        "disableAcceleration" : true,
+        "acceleration" : 2.188
       },
       "scrolling" : {
         "reverse" : {
@@ -16,48 +17,47 @@
         },
         "distance" : 5
       },
-      "if" : {
-        "device" : {
-          "category" : "mouse"
-        }
-      }
-    },
-    {
-      "if" : {
-        "device" : {
-          "productID" : "0xc246",
-          "productName" : "G300s Optical Gaming Mouse",
-          "category" : "mouse",
-          "vendorID" : "0x46d"
-        }
-      },
-      "scrolling" : {
-        "distance" : 5,
-        "reverse" : {
-          "horizontal" : false,
-          "vertical" : true
-        }
-      },
-      "pointer" : {
-        "acceleration" : 2.188,
-        "disableAcceleration" : true
-      },
       "buttons" : {
         "universalBackForward" : true
       }
     },
     {
+      "buttons" : {
+        "universalBackForward" : true
+      },
       "if" : {
         "device" : {
           "category" : "mouse",
-          "vendorID" : "0x1532",
-          "productID" : "0xb2",
-          "productName" : "Razer DeathAdder V3"
+          "productName" : "G300s Optical Gaming Mouse",
+          "vendorID" : "0x46d",
+          "productID" : "0xc246"
+        }
+      },
+      "scrolling" : {
+        "distance" : 5,
+        "reverse" : {
+          "vertical" : true,
+          "horizontal" : false
         }
       },
       "pointer" : {
-        "acceleration" : 0.9444
+        "disableAcceleration" : true,
+        "acceleration" : 2.188
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "productName" : "Razer DeathAdder V3",
+          "productID" : "0xb2",
+          "vendorID" : "0x1532",
+          "category" : "mouse"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 0.508
       }
     }
-  ]
+  ],
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
 }
