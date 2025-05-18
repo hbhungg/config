@@ -4,7 +4,7 @@
   email = hung.ba.huynh@proton.me
 
 [core]
-	editor = nvim
+  editor = nvim
   compression = 9
   preloadindex = true
 
@@ -23,7 +23,7 @@
   verbose = true
 
 [push]
-	default = simple
+  default = simple
   autoSetupRemote = true
 
 [diff]
@@ -43,9 +43,10 @@
   lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
   p = push
   cn = commit
+  c = commit
 
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
