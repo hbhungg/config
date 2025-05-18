@@ -1,3 +1,6 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -155,6 +158,59 @@ rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+
+  {
+    -- colorscheme
+    'Mofiqul/vscode.nvim',
+    priority = 1000,
+    config = function()
+      require('vscode').setup {
+        disable_nvimtree_bg = true,
+      }
+      vim.cmd.colorscheme 'vscode'
+    end,
+  },
+
+  {
+    'nvim-tree/nvim-tree.lua',
+    keys = {
+      { '<leader>t', '<cmd>NvimTreeToggle<cr>', desc = 'NvimTree' },
+    },
+    opts = {
+      view = {
+        side = 'right',
+        width = 30,
+      },
+
+      renderer = {
+        icons = {
+          show = {
+            file = false,
+            folder = true,
+            -- folder_arrow = true,
+            git = false,
+          },
+          glyphs = {
+            folder = {
+              -- Simple text icons for folders (no nerd font)
+              default = '▸',
+              open = '▾',
+              empty = '▸',
+              empty_open = '-',
+              symlink = '→',
+              symlink_open = '↓',
+            },
+          },
+        },
+        -- Enable special coloring for folders
+        highlight_git = false,
+      },
+      filters = {
+        dotfiles = false,
+      },
+    },
+  },
+
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
 
@@ -781,15 +837,6 @@ require('lazy').setup({
       -- Shows a signature help window while you type arguments for a function
       signature = { enabled = true },
     },
-  },
-
-  {
-    -- colorscheme
-    'Mofiqul/vscode.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'vscode'
-    end,
   },
 
   -- Highlight todo, notes, etc in comments
