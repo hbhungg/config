@@ -1,3 +1,6 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -155,6 +158,39 @@ rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+  {
+    'nvim-tree/nvim-tree.lua',
+    config = function()
+      -- Set up nvim-tree
+      require('nvim-tree').setup {
+        view = {
+          side = 'right', -- Open tree on the right side
+        },
+        renderer = {
+          icons = {
+            show = {
+              file = false,
+              folder = false,
+              folder_arrow = true,
+              git = false,
+            },
+            glyphs = {
+              folder = {
+                arrow_closed = '>',
+                arrow_open = 'v',
+              },
+            },
+          },
+        },
+      }
+
+      -- Key mapping to open nvim-tree with <leader>t
+      vim.api.nvim_set_keymap('n', '<leader>tt', ':NvimTreeToggle<CR>', {
+        noremap = true,
+        silent = true,
+      })
+    end,
+  },
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
 
@@ -590,6 +626,7 @@ require('lazy').setup({
         ruff = {},
         ts_ls = {},
         jdtls = {},
+        terraformls = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -742,7 +779,7 @@ require('lazy').setup({
         -- <c-k>: Toggle signature help
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        preset = 'default',
+        preset = 'super-tab',
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
@@ -788,6 +825,10 @@ require('lazy').setup({
     'Mofiqul/vscode.nvim',
     priority = 1000,
     config = function()
+      require('vscode').setup {
+        disable_nvimtree_bg = true,
+      }
+      vim.o.background = 'dark'
       vim.cmd.colorscheme 'vscode'
     end,
   },
@@ -852,6 +893,7 @@ require('lazy').setup({
         'python',
         'java',
         'terraform',
+        'hcl',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
