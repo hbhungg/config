@@ -90,7 +90,7 @@ export PATH="/Users/hung/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 export PATH="$HOME/bin/:$PATH"
 export PATH="$HOME/.local/bin/:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-export PATH="/bin:/usr/bin:/usr/local/bin:/usr/sbin:/sbin:$PATH"
+export PATH="$PATH:/bin:/usr/bin:/usr/local/bin:/usr/sbin:/sbin"
 # source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 # source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 # chruby ruby-3.1.3
