@@ -4,6 +4,10 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+
 # Source git `prompt for PS1
 if [ -f ~/.git-prompt.sh ]; then
   GIT_PROMPT_ONLY_IN_REPO=1
@@ -111,3 +115,6 @@ export PATH="$HOME/.local/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+eval "$(direnv hook bash)"
+
