@@ -644,6 +644,7 @@ require('lazy').setup({
         ts_ls = {},
         jdtls = {},
         terraformls = {},
+        pyright = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
