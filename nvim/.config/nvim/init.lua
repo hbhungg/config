@@ -678,6 +678,7 @@ require('lazy').setup({
       vim.list_extend(ensure_installed, {
         'stylua',
         'ruff',
+        'python-lsp-server',
         'ts_ls',
         'jdtls',
         'rust_analyzer',
