@@ -24,7 +24,7 @@ text = "#1E1E1E"
 cursor = "#FFFFFF"
 
 [colors.normal]
-black = "#1E1E1E"
+black = "#666666"
 red = "#D64A2E"
 green = "#40C731"
 yellow = "#999900"
@@ -34,7 +34,7 @@ cyan = "#40C5D1"
 white = "#FFFFFF"
 
 [colors.bright]
-black = "#1E1E1E"
+black = "#888888"
 red = "#D64A2E"
 green = "#40C731"
 yellow = "#999900"
