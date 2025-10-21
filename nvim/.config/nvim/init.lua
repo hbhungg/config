@@ -644,7 +644,18 @@ require('lazy').setup({
         ts_ls = {},
         jdtls = {},
         terraformls = {},
-        pyright = {},
+        pyright = {
+          settings = {
+            pyright = {
+              disableOrganizeImports = true,
+            },
+            python = {
+              analysis = {
+                ignore = { '*' },
+              },
+            },
+          },
+        },
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -678,9 +689,7 @@ require('lazy').setup({
       vim.list_extend(ensure_installed, {
         'stylua',
         'ruff',
-        'python-lsp-server',
         'ts_ls',
-        'jdtls',
         'rust_analyzer',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
