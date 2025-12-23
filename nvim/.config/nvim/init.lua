@@ -642,7 +642,7 @@ require('lazy').setup({
         rust_analyzer = {},
         ruff = {},
         ts_ls = {},
-        jdtls = {},
+        -- jdtls = {},
         terraformls = {},
         pyright = {},
         lua_ls = {
@@ -680,7 +680,6 @@ require('lazy').setup({
         'ruff',
         'python-lsp-server',
         'ts_ls',
-        'jdtls',
         'rust_analyzer',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
