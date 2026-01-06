@@ -50,6 +50,15 @@
         ];
       };
 
+      system.defaults = {
+        dock.autohide = true;
+        dock.persistent-apps = [
+          "${pkgs.alacritty}/Applications/Alacritty.app/"
+          "/Applications/Zen.app/"
+          "/System/Applications/System Settings.app"
+        ];
+      };
+
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
