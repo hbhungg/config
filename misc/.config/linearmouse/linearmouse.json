@@ -1,0 +1,63 @@
+{
+  "schemes" : [
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse"
+        }
+      },
+      "pointer" : {
+        "disableAcceleration" : true,
+        "acceleration" : 2.188
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true,
+          "horizontal" : false
+        },
+        "distance" : 5
+      },
+      "buttons" : {
+        "universalBackForward" : true
+      }
+    },
+    {
+      "buttons" : {
+        "universalBackForward" : true
+      },
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productName" : "G300s Optical Gaming Mouse",
+          "vendorID" : "0x46d",
+          "productID" : "0xc246"
+        }
+      },
+      "scrolling" : {
+        "distance" : 5,
+        "reverse" : {
+          "vertical" : true,
+          "horizontal" : false
+        }
+      },
+      "pointer" : {
+        "disableAcceleration" : true,
+        "acceleration" : 2.188
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "productName" : "Razer DeathAdder V3",
+          "productID" : "0xb2",
+          "vendorID" : "0x1532",
+          "category" : "mouse"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 0.508
+      }
+    }
+  ],
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
+}

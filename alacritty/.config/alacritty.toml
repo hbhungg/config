@@ -1,0 +1,56 @@
+[font]
+size = 12.0
+offset.x = 0
+offset.y = 3
+
+[font.normal]
+family = "SF Mono"
+style = "Regular"
+
+[font.bold]
+family = "SF Mono"
+style = "Bold"
+
+[font.italic]
+family = "SF Mono"
+style = "Italic"
+
+[colors.primary]
+background = '#1E1E1E'
+foreground = '#FFFFFF'
+
+[colors.cursor]
+text = "#1E1E1E"
+cursor = "#FFFFFF"
+
+[colors.normal]
+black = "#666666"
+red = "#D64A2E"
+green = "#40C731"
+yellow = "#999900"
+blue = "#007ACC"
+magenta = "#E44CE1"
+cyan = "#40C5D1"
+white = "#FFFFFF"
+
+[colors.bright]
+black = "#888888"
+red = "#D64A2E"
+green = "#40C731"
+yellow = "#999900"
+blue = "#007ACC"
+magenta = "#E44CE1"
+cyan = "#40C5D1"
+white = "#FFFFFF"
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+dynamic_padding = true
+
+[mouse]
+bindings = [{ mouse = "Middle", action = "PasteSelection" }]
+
+[keyboard]
+bindings = [ { key = "Tab", mods = "Control", action = "SelectNextTab" } ]
