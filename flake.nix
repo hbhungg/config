@@ -167,6 +167,7 @@
             terminal = "xterm-256color";
             prefix = "`";
             keyMode = "vi";
+	    baseIndex = 1;
 	    extraConfig = ''
               set -g default-command "/run/current-system/sw/bin/bash"
               set -ag terminal-overrides ",xterm-256color:RGB"
