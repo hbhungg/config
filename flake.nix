@@ -23,15 +23,15 @@
       };
 
       nixpkgs.config.allowUnfree = true;
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
       environment.systemPackages = with pkgs; [ 
+        coreutils
+        bashInteractive
         vim
         neovim
-        tmux
         uv
         ripgrep
         bat
+        tmux-mem-cpu-load
         orbstack
         k9s
         rectangle
@@ -41,6 +41,11 @@
         discord
         slack
         spotify
+      ];
+
+      environment.systemPath = [
+        "/run/current-system/sw/bin"
+        "/etc/profiles/per-user/wren/bin"
       ];
 
       homebrew = {
@@ -54,211 +59,174 @@
         ];
       };
 
+      # --- Dock Management (System Level) ---
+      system.defaults.dock = {
+        autohide = true;
+        show-recents = false;
+        persistent-apps = [
+          "/Users/wren/Applications/Home Manager Apps/Alacritty.app"
+          "/Applications/Zen.app"
+          "/System/Applications/System Settings.app"
+        ];
+      };
+
+      # --- Home Manager Configuration ---
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
         backupFileExtension = "backup";
         verbose = true;
         extraSpecialArgs = { inherit inputs; };
-      };
-      home-manager.users.wren = { pkgs, ... }: {
-        home.stateVersion = "25.11";
+        users.wren = { pkgs, ... }: {
+          home.stateVersion = "25.11";
 
-        programs.home-manager.enable = true;
-        programs.bash = { 
-          enable = true;
-          enableCompletion = true;
-          enableVteIntegration = true;
-          historyControl = [ "ignoreboth" "erasedups" ];
-          historySize = 1000;
-          historyFileSize = 2000;
-          historyIgnore = [ "ls" "exit" ];
-          shellAliases = {
-            grep = "rg --color=auto";
-            ls = "ls --color";
-            ll = "ls -alF";
-            vi = "nvim";
-            cat = "bat --theme='Visual Studio Dark+' --paging=never";
-            wgit = "watch -n 0.5 --color git -c color.status=always status";
-            uuidgen = "uuidgen | tr A-F a-f";
-          };
-          initExtra = ''
-            # Enable histappend and checkwinsize
-            shopt -s histappend
-            shopt -s checkwinsize
-            if [ -f "${pkgs.git}/share/git/contrib/completion/git-prompt.sh" ]; then
-              GIT_PROMPT_ONLY_IN_REPO=1
-              source "${pkgs.git}/share/git/contrib/completion/git-prompt.sh"
-            fi
-            get_exit_status(){
-             es=$?
-             if [ $es -eq 0 ]; then echo -e ""
-             else echo -e "''${es} "
-             fi
-            }
-            export PS1='\[\e[01;38m\]\u@\h\[\e[00m\] \[\e[01;32m\]\w\[\e[00m\]\[\e[00;35m\]$(__git_ps1)\[\e[00m\] \[\e[01;31m\]» $(get_exit_status)\[\e[00m\]'
-            export PS2='» '
-          '';
-        };
-        programs.readline = {
-          enable = true;
-          variables = {
-            editing-mode = "vi";
-            keyseq-timeout = 10;
-            show-all-if-ambiguous = "on";
-          };
-          extraConfig = ''
-            TAB: menu-complete
-          '';
-        };
-        programs.fzf = {
-          enable = true;
-          enableBashIntegration = true;
-        };
-        programs.alacritty = {
-          enable = true;
-          settings = {
-            window = { dynamic_padding = true; };
-            env = { TERM = "xterm-256color"; };
-            font = {
-              size = 12.0;
-              offset = { x = 0; y = 3; };
-              normal = { family = "SF Mono"; style = "Regular"; };
-              bold = { family = "SF Mono"; style = "Bold"; };
-              italic = { family = "SF Mono"; style = "Italic"; };
+          programs.home-manager.enable = true;
+          programs.bash = { 
+            enable = true;
+            enableCompletion = true;
+            enableVteIntegration = true;
+            historyControl = [ "ignoreboth" "erasedups" ];
+            historySize = 1000;
+            historyFileSize = 2000;
+            historyIgnore = [ "ls" "exit" ];
+            shellAliases = {
+              switch = "sudo darwin-rebuild switch --flake .#nest-2";
+              grep = "rg --color=auto";
+              ls = "ls --color=auto";
+              ll = "ls -alF";
+              vi = "nvim";
+              cat = "bat --theme='Visual Studio Dark+' --paging=never";
+              wgit = "watch -n 0.5 --color git -c color.status=always status";
+              uuidgen = "uuidgen | tr A-F a-f";
             };
-            mouse = { bindings = [ 
-              { mouse = "Middle"; action = "PasteSelection"; } 
-            ]; };
-            keyboard = { bindings = [
-              { key = "Tab"; mods = "Control"; action = "SelectNextTab"; }
-            ]; };
-            colors = {
-      primary = {
-        background = "#1E1E1E";
-        foreground = "#FFFFFF";
-      };
-      cursor = {
-        text = "#1E1E1E";
-        cursor = "#FFFFFF";
-      };
-      normal = {
-        black = "#666666";
-        red = "#D64A2E";
-        green = "#40C731";
-        yellow = "#999900";
-        blue = "#007ACC";
-        magenta = "#E44CE1";
-        cyan = "#40C5D1";
-        white = "#FFFFFF";
-      };
-      bright = {
-        black = "#888888";
-        red = "#D64A2E";
-        green = "#40C731";
-        yellow = "#999900";
-        blue = "#007ACC";
-        magenta = "#E44CE1";
-        cyan = "#40C5D1";
-        white = "#FFFFFF";
-      };
-    };
+            initExtra = ''
+              shopt -s histappend
+              shopt -s checkwinsize
+              if [ -f "${pkgs.git}/share/git/contrib/completion/git-prompt.sh" ]; then
+                GIT_PROMPT_ONLY_IN_REPO=1
+                source "${pkgs.git}/share/git/contrib/completion/git-prompt.sh"
+              fi
+              get_exit_status(){
+               es=$?
+               if [ $es -eq 0 ]; then echo -e ""
+               else echo -e "''${es} "
+               fi
+              }
+              export PS1='\[\e[01;38m\]\u@\h\[\e[00m\] \[\e[01;32m\]\w\[\e[00m\]\[\e[00;35m\]$(__git_ps1)\[\e[00m\] \[\e[01;31m\]» $(get_exit_status)\[\e[00m\]'
+              export PS2='» '
+            '';
+          };
+
+          programs.readline = {
+            enable = true;
+            variables = {
+              editing-mode = "vi";
+              keyseq-timeout = 10;
+              show-all-if-ambiguous = "on";
+            };
+            extraConfig = "TAB: menu-complete";
+          };
+
+          programs.fzf = {
+            enable = true;
+            enableBashIntegration = true;
+          };
+
+          programs.alacritty = {
+            enable = true;
+            settings = {
+              window = { dynamic_padding = true; };
+              env = { TERM = "xterm-256color"; };
+              font = {
+                size = 12.0;
+                offset = { x = 0; y = 3; };
+                normal = { family = "SF Mono"; style = "Regular"; };
+                bold = { family = "SF Mono"; style = "Bold"; };
+              };
+              colors = {
+                primary = { background = "#1E1E1E"; foreground = "#FFFFFF"; };
+                normal = {
+                  black = "#666666"; red = "#D64A2E"; green = "#40C731"; yellow = "#999900";
+                  blue = "#007ACC"; magenta = "#E44CE1"; cyan = "#40C5D1"; white = "#FFFFFF";
+                };
+                bright = {
+                  black = "#888888"; red = "#D64A2E"; green = "#40C731"; yellow = "#999900";
+                  blue = "#007ACC"; magenta = "#E44CE1"; cyan = "#40C5D1"; white = "#FFFFFF";
+                };
+              };
+            };
+          };
+
+          programs.htop = {
+            enable = true;
+            settings.show_program_path = true;
+          };
+
+          programs.tmux = {
+            enable = true;
+            terminal = "xterm-256color";
+            prefix = "`";
+            keyMode = "vi";
+            extraConfig = ''
+              set -g default-command "/run/current-system/sw/bin/bash"
+              set -ag terminal-overrides ",xterm-256color:RGB"
+              bind-key ` last-window
+              set -g status-style fg=color137,bg=default
+              # ... (rest of your tmux settings)
+            '';
+            plugins = with pkgs.tmuxPlugins; [ vim-tmux-navigator ];
+          };
+
+          home.sessionVariables = { 
+            EDITOR = "nvim"; 
+            VISUAL = "nvim";
+            LSCOLORS = "GxBxhxDxfxhxhxhxhxcxcx";
+            # Cyan (36) for directories to match /bin/ls
+            LS_COLORS = "di=36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43";
+            TERM = "xterm-256color";
+          };
+
+          home.file = {
+            ".vimrc".source = ./vimrc;
+            ".editrc".source = ./editrc;
+          };
+
+          programs.git.enable = true;
+          programs.git.settings = {
+            user.name = "hbhungg";
+            user.email = "hung.ba.huynh@proton.me";
+            alias = {
+              st = "status";
+              lg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'";
+              p = "push";
+              cn = "commit";
+              c = "commit";
+            };
+            core = {
+              editor = "nvim";
+              compression = 9;
+              preloadindex = true;
+              ignorecase = false;
+            };
+            init.defaultBranch = "main";
+            column.ui = "auto";
+            status = { branch = true; showStash = true; showUntrackedFiles = "all"; };
+            commit.verbose = true;
+            push = { default = "simple"; autoSetupRemote = true; };
+            diff = { algorithm = "histogram"; colorMoved = "plain"; mnemonicPrefix = true; renames = true; };
+            branch.sort = "-committerdate";
+            tag.sort = "version:refname";
           };
         };
-        programs.htop.enable = true;
-        programs.vscode = { enable = true; };
-        programs.htop.settings.show_program_path = true;
-        home.sessionVariables = { 
-          EDITOR = "nvim"; 
-          VISUAL = "nvim";
-          LC_ALL = "en_US.UTF-8";
-          LANG = "en_US.UTF-8";
-          LANGUAGE = "en_US.UTF-8";
-          LSCOLORS = "GxBxhxDxfxhxhxhxhxcxcx";
-          LS_COLORS = "GxBxhxDxfxhxhxhxhxcxcx";
-          TERM = "xterm-256color";
-        };
-
-        home.packages = [ ];
-
-        home.file = {
-          ".vimrc".source = ./vimrc;
-          ".editrc".source = ./editrc;
-        };
-
-        programs.git.enable = true;
-        programs.git.settings = {
-          user.name = "hbhungg";
-          user.email = "hung.ba.huynh@proton.me";
-    alias = {
-            st = "status";
-            lg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'";
-            p = "push";
-            cn = "commit";
-            c = "commit";
-          };
-
-          core = {
-      editor = "nvim";
-            compression = 9;
-            preloadindex = true;
-            ignorecase = false;
-    };
-    init.defaultBranch = "main";
-    column.ui = "auto";
-    status = {
-            branch = true;
-            showStash = true;
-            showUntrackedFiles = "all";
-          };
-    commit.verbose = true;
-    push = {
-            default = "simple";
-            autoSetupRemote = true;
-          };
-    diff = {
-            algorithm = "histogram";
-            colorMoved = "plain";
-            mnemonicPrefix = true;
-            renames = true;
-          };
-    branch.sort = "-committerdate";
-          tag.sort = "version:refname";
-    filter."lfs" = {
-            smudge = "git-lfs smudge -- %f";
-            process = "git-lfs filter-process";
-            required = true;
-            clean = "git-lfs clean -- %f";
-          };
-        };
       };
 
-      system.defaults = {
-        dock.autohide = true;
-        dock.persistent-apps = [
-          "/Applications/Zen.app/"
-          "/System/Applications/System Settings.app"
-        ];
-      };
-
-
-      # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
-
-      # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
-
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
       system.stateVersion = 6;
-
-      # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
     };
   in
   {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#nest-2
     darwinConfigurations."nest-2" = nix-darwin.lib.darwinSystem {
       modules = [ 
         configuration
