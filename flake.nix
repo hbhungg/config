@@ -30,6 +30,8 @@
         neovim
         tmux
         uv
+        ripgrep
+        bat
         orbstack
         k9s
         rectangle
@@ -71,6 +73,15 @@
           historySize = 1000;
           historyFileSize = 2000;
           historyIgnore = [ "ls" "exit" ];
+          shellAliases = {
+            grep = "rg --color=auto";
+            ls = "ls --color";
+            ll = "ls -alF";
+            vi = "nvim";
+            cat = "bat --theme='Visual Studio Dark+' --paging=never";
+            wgit = "watch -n 0.5 --color git -c color.status=always status";
+            uuidgen = "uuidgen | tr A-F a-f";
+          };
           initExtra = ''
             # Enable histappend and checkwinsize
             shopt -s histappend
