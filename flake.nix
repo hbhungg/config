@@ -29,6 +29,8 @@
           uv
           tree
           stats
+          nodejs_24
+          pnpm
           orbstack
           k9s
           rectangle
@@ -233,7 +235,6 @@
               ".editrc".source = ./editrc;
             };
 
-            programs.git.enable = true;
             programs.delta = {
               enable = true;
               enableGitIntegration = true;
@@ -247,31 +248,35 @@
               };
             };
 
-            programs.git.settings = {
-              user.name = "hbhungg";
-              user.email = "hung.ba.huynh@proton.me";
-              alias = {
-                st = "status";
-                lg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'";
-                p = "push";
-                cn = "commit";
-                c = "commit";
-                d = "diff";
+            programs.git = {
+              enable = true;
+              settings = {
+                user.name = "hbhungg";
+                user.email = "hung.ba.huynh@proton.me";
+                alias = {
+                  st = "status";
+                  lg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'";
+                  p = "push";
+                  cn = "commit";
+                  c = "commit";
+                  d = "diff";
+                };
+                core = {
+                  editor = "nvim";
+                  compression = 9;
+                  preloadindex = true;
+                  ignorecase = false;
+                };
+                color.ui = true;
+                init.defaultBranch = "main";
+                column.ui = "auto";
+                status = { branch = true; showStash = true; showUntrackedFiles = "all"; };
+                commit.verbose = true;
+                push = { default = "simple"; autoSetupRemote = true; };
+                diff = { algorithm = "histogram"; colorMoved = "plain"; mnemonicPrefix = true; renames = true; };
+                branch.sort = "-committerdate";
+                tag.sort = "version:refname";
               };
-              core = {
-                editor = "nvim";
-                compression = 9;
-                preloadindex = true;
-                ignorecase = false;
-              };
-              init.defaultBranch = "main";
-              column.ui = "auto";
-              status = { branch = true; showStash = true; showUntrackedFiles = "all"; };
-              commit.verbose = true;
-              push = { default = "simple"; autoSetupRemote = true; };
-              diff = { algorithm = "histogram"; colorMoved = "plain"; mnemonicPrefix = true; renames = true; };
-              branch.sort = "-committerdate";
-              tag.sort = "version:refname";
             };
 
             programs.neovim = {
