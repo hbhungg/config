@@ -279,7 +279,11 @@
               vimAlias = true;
               vimdiffAlias = true;
             };
-            xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "/etc/nix-darwin/nvim";
+            xdg.configFile = {
+              "nvim".source = config.lib.file.mkOutOfStoreSymlink "/etc/nix-darwin/nvim";
+              "linearmouse".source = ./linearmouse;
+              "karabiner".source = ./karabiner;
+            };
           };
         };
 
