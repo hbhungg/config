@@ -14,6 +14,7 @@
     configuration = { pkgs, ... }: {
       programs.bash.enable = true;
       environment.shells = [ pkgs.bash ];
+      environment.pathsToLink = [ "/share/bash-completion" ];
       system.primaryUser = "wren";
       users.users.wren = {
         name = "wren";
@@ -55,23 +56,81 @@
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
-	backupFileExtension = "backup";
-	extraSpecialArgs = { inherit inputs; };
+        backupFileExtension = "backup";
+        verbose = true;
+        extraSpecialArgs = { inherit inputs; };
       };
       home-manager.users.wren = { pkgs, ... }: {
-	home.stateVersion = "25.11";
+        home.stateVersion = "25.11";
 
-	programs.bash.enable = true;
-	programs.htop.enable = true;
-	programs.htop.settings.show_program_path = true;
+        programs.home-manager.enable = true;
+        programs.bash = { 
+          enable = true;
+          enableCompletion = true;
+          enableVteIntegration = true;
+          historyControl = [ "ignoreboth" "erasedups" ];
+          historySize = 1000;
+          historyFileSize = 2000;
+          historyIgnore = [ "ls" "exit" ];
+          initExtra = ''
+            # Enable histappend and checkwinsize
+            shopt -s histappend
+            shopt -s checkwinsize
+            if [ -f "${pkgs.git}/share/git/contrib/completion/git-prompt.sh" ]; then
+              GIT_PROMPT_ONLY_IN_REPO=1
+              source "${pkgs.git}/share/git/contrib/completion/git-prompt.sh"
+            fi
+            get_exit_status(){
+             es=$?
+             if [ $es -eq 0 ]; then echo -e ""
+             else echo -e "''${es} "
+             fi
+            }
+            export PS1='\[\e[01;38m\]\u@\h\[\e[00m\] \[\e[01;32m\]\w\[\e[00m\]\[\e[00;35m\]$(__git_ps1)\[\e[00m\] \[\e[01;31m\]» $(get_exit_status)\[\e[00m\]'
+            export PS2='» '
+          '';
+        };
+        programs.readline = {
+          enable = true;
+          variables = {
+            editing-mode = "vi";
+            keyseq-timeout = 10;
+            show-all-if-ambiguous = "on";
+          };
+          extraConfig = ''
+            TAB: menu-complete
+          '';
+        };
+        programs.fzf = {
+          enable = true;
+          enableBashIntegration = true;
+        };
+        programs.htop.enable = true;
+        programs.vscode = { enable = true; };
+        programs.htop.settings.show_program_path = true;
+        home.sessionVariables = { 
+          EDITOR = "nvim"; 
+          VISUAL = "nvim";
+          LC_ALL = "en_US.UTF-8";
+          LANG = "en_US.UTF-8";
+          LANGUAGE = "en_US.UTF-8";
+          LSCOLORS = "GxBxhxDxfxhxhxhxhxcxcx";
+          LS_COLORS = "GxBxhxDxfxhxhxhxhxcxcx";
+          TERM = "xterm-256color";
+        };
 
-	home.packages = [ ];
+        home.packages = [ ];
 
-	programs.git.enable = true;
-	programs.git.settings = {
+        home.file = {
+          ".vimrc".source = ./vimrc;
+          ".editrc".source = ./editrc;
+        };
+
+        programs.git.enable = true;
+        programs.git.settings = {
           user.name = "hbhungg";
           user.email = "hung.ba.huynh@proton.me";
-	  alias = {
+    alias = {
             st = "status";
             lg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'";
             p = "push";
@@ -80,32 +139,32 @@
           };
 
           core = {
-	    editor = "nvim";
+      editor = "nvim";
             compression = 9;
             preloadindex = true;
             ignorecase = false;
-	  };
-	  init.defaultBranch = "main";
-	  column.ui = "auto";
-	  status = {
+    };
+    init.defaultBranch = "main";
+    column.ui = "auto";
+    status = {
             branch = true;
             showStash = true;
             showUntrackedFiles = "all";
           };
-	  commit.verbose = true;
-	  push = {
+    commit.verbose = true;
+    push = {
             default = "simple";
             autoSetupRemote = true;
           };
-	  diff = {
+    diff = {
             algorithm = "histogram";
             colorMoved = "plain";
             mnemonicPrefix = true;
             renames = true;
           };
-	  branch.sort = "-committerdate";
+    branch.sort = "-committerdate";
           tag.sort = "version:refname";
-	  filter."lfs" = {
+    filter."lfs" = {
             smudge = "git-lfs smudge -- %f";
             process = "git-lfs filter-process";
             required = true;
