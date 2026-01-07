@@ -30,7 +30,11 @@
           tree
           stats
           nodejs_24
+          wget
+          curl
           pnpm
+          cargo
+          rustc
           orbstack
           k9s
           rectangle
