@@ -173,6 +173,8 @@
               terminal = "xterm-256color";
               prefix = "`";
               keyMode = "vi";
+              escapeTime = 0;
+              disableConfirmationPrompt = true;
               baseIndex = 1;
               extraConfig = ''
                 set -g default-command "/run/current-system/sw/bin/bash"
@@ -283,6 +285,9 @@
               "nvim".source = config.lib.file.mkOutOfStoreSymlink "/etc/nix-darwin/nvim";
               "linearmouse".source = ./linearmouse;
               "karabiner".source = ./karabiner;
+            };
+            programs.vscode = {
+              enable = true;
             };
           };
         };
