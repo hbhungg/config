@@ -1,5 +1,4 @@
-## Quickstart
-
+To setup on new machine
 ```bash
 # Install Lix
 curl -sSf -L https://install.lix.systems/lix | sh -s -- install
@@ -10,6 +9,7 @@ cd /etc/nix-darwin
 sudo nix run nix-darwin/master#darwin-rebuild -- switch
 ```
 
+For updating
 ```bash
 sudo darwin-rebuild switch
 ```
