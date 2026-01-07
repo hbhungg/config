@@ -30,7 +30,6 @@
         neovim
         tmux
         uv
-        alacritty
         orbstack
         k9s
         rectangle
@@ -105,6 +104,56 @@
           enable = true;
           enableBashIntegration = true;
         };
+        programs.alacritty = {
+          enable = true;
+          settings = {
+            window = { dynamic_padding = true; };
+            env = { TERM = "xterm-256color"; };
+            font = {
+              size = 12.0;
+              offset = { x = 0; y = 3; };
+              normal = { family = "SF Mono"; style = "Regular"; };
+              bold = { family = "SF Mono"; style = "Bold"; };
+              italic = { family = "SF Mono"; style = "Italic"; };
+            };
+            mouse = { bindings = [ 
+              { mouse = "Middle"; action = "PasteSelection"; } 
+            ]; };
+            keyboard = { bindings = [
+              { key = "Tab"; mods = "Control"; action = "SelectNextTab"; }
+            ]; };
+            colors = {
+      primary = {
+        background = "#1E1E1E";
+        foreground = "#FFFFFF";
+      };
+      cursor = {
+        text = "#1E1E1E";
+        cursor = "#FFFFFF";
+      };
+      normal = {
+        black = "#666666";
+        red = "#D64A2E";
+        green = "#40C731";
+        yellow = "#999900";
+        blue = "#007ACC";
+        magenta = "#E44CE1";
+        cyan = "#40C5D1";
+        white = "#FFFFFF";
+      };
+      bright = {
+        black = "#888888";
+        red = "#D64A2E";
+        green = "#40C731";
+        yellow = "#999900";
+        blue = "#007ACC";
+        magenta = "#E44CE1";
+        cyan = "#40C5D1";
+        white = "#FFFFFF";
+      };
+    };
+          };
+        };
         programs.htop.enable = true;
         programs.vscode = { enable = true; };
         programs.htop.settings.show_program_path = true;
@@ -176,7 +225,6 @@
       system.defaults = {
         dock.autohide = true;
         dock.persistent-apps = [
-          "${pkgs.alacritty}/Applications/Alacritty.app/"
           "/Applications/Zen.app/"
           "/System/Applications/System Settings.app"
         ];
