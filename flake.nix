@@ -28,7 +28,7 @@
           bashInteractive
           uv
           tree
-          tmux-mem-cpu-load
+          stats
           orbstack
           k9s
           rectangle
@@ -193,7 +193,7 @@
                 set-window-option -g window-status-separator '  '
                 set-option -g status-style fg=color137,bg=default
                 set -g status-left ' '
-                set -g status-right '#H:#S #[fg=colour255,bg=default] #(tmux-mem-cpu-load --interval 1 -a 0 -g 0)  %I:%M %p '
+                set -g status-right '#H:#S #[fg=colour255,bg=default] %I:%M %p '
                 set -g status-right-length 140
                 set -g status-left-length 20
                 setw -g window-status-current-format '#I#[fg=colour250]:#[fg=colour255]#W#[fg=colour50]#F'
