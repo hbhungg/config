@@ -1,24 +1,25 @@
 {
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.4",
   "schemes" : [
     {
+      "buttons" : {
+        "universalBackForward" : true
+      },
       "if" : {
         "device" : {
           "category" : "mouse"
         }
       },
       "pointer" : {
-        "disableAcceleration" : true,
-        "acceleration" : 2.188
+        "acceleration" : 2.188,
+        "disableAcceleration" : true
       },
       "scrolling" : {
+        "distance" : 5,
         "reverse" : {
-          "vertical" : true,
-          "horizontal" : false
-        },
-        "distance" : 5
-      },
-      "buttons" : {
-        "universalBackForward" : true
+          "horizontal" : false,
+          "vertical" : true
+        }
       }
     },
     {
@@ -28,36 +29,62 @@
       "if" : {
         "device" : {
           "category" : "mouse",
+          "productID" : "0xc246",
           "productName" : "G300s Optical Gaming Mouse",
-          "vendorID" : "0x46d",
-          "productID" : "0xc246"
+          "vendorID" : "0x46d"
         }
+      },
+      "pointer" : {
+        "acceleration" : 2.188,
+        "disableAcceleration" : true
       },
       "scrolling" : {
         "distance" : 5,
         "reverse" : {
-          "vertical" : true,
-          "horizontal" : false
+          "horizontal" : false,
+          "vertical" : true
         }
-      },
-      "pointer" : {
-        "disableAcceleration" : true,
-        "acceleration" : 2.188
       }
     },
     {
       "if" : {
         "device" : {
-          "productName" : "Razer DeathAdder V3",
+          "category" : "mouse",
           "productID" : "0xb2",
-          "vendorID" : "0x1532",
-          "category" : "mouse"
+          "productName" : "Razer DeathAdder V3",
+          "vendorID" : "0x1532"
         }
       },
       "pointer" : {
         "acceleration" : 0.508
       }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xb034",
+          "productName" : "MX Master 3S",
+          "serialNumber" : "D01CB988",
+          "vendorID" : "0x46d"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 1.6081
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "trackpad",
+          "productID" : "0x0",
+          "productName" : "Apple Internal Keyboard \/ Trackpad",
+          "vendorID" : "0x0"
+        }
+      },
+      "pointer" : {
+        "disableAcceleration" : false
+      }
     }
-  ],
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
+  ]
 }

@@ -644,18 +644,7 @@ require('lazy').setup({
         ts_ls = {},
         jdtls = {},
         terraformls = {},
-        pyright = {
-          settings = {
-            pyright = {
-              disableOrganizeImports = true,
-            },
-            python = {
-              analysis = {
-                ignore = { '*' },
-              },
-            },
-          },
-        },
+        pyright = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -707,6 +696,26 @@ require('lazy').setup({
             require('lspconfig')[server_name].setup(server)
           end,
         },
+      }
+    end,
+  },
+
+  { -- Python virtual environment detector
+    'tnfru/nvim-venv-detector',
+    event = 'VimEnter',
+    config = function()
+      require('venv_detector').setup {
+        auto_activate_venv = true,
+        auto_restart_lsp = true,
+        lsp_client_names = {
+          'pyright',
+          'pylsp',
+          'ruff',
+          'ruff_lsp',
+          'basedpyright',
+          'python',
+        },
+        notify = true,
       }
     end,
   },
