@@ -16,6 +16,7 @@ fi
 
 # Git autocomplete
 [[ -r "${HOME}/.git-completion.bash" ]] && . "${HOME}/.git-completion.bash"
+[[ -r "${HOME}/.completion-for-pnpm.bash" ]] && . "${HOME}/.completion-for-pnpm.bash"
 
 # Added brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -30,7 +31,21 @@ get_exit_status(){
        echo -e "${es} "
    fi
 }
-export PS1='\[\e[01;38m\]\u@\h\[\e[00m\] \[\e[01;32m\]\w\[\e[00m\]\[\e[00;35m\]$(__git_ps1)\[\e[00m\] \[\e[01;31m\]» $(get_exit_status)\[\e[00m\]' 
+
+# Toggle between full path (\w) and short path (\W)
+export PROMPT_PATH='\w'  # Default to full path
+toggle_path() {
+    if [ "$PROMPT_PATH" = '\w' ]; then
+        export PROMPT_PATH='\W'
+        echo "Switched to short path (directory name only)"
+    else
+        export PROMPT_PATH='\w'
+        echo "Switched to full path"
+    fi
+    export PS1='\[\e[01;38m\]\u@\h\[\e[00m\] \[\e[01;32m\]'"$PROMPT_PATH"'\[\e[00m\]\[\e[00;35m\]$(__git_ps1)\[\e[00m\] \[\e[01;31m\]» $(get_exit_status)\[\e[00m\]'
+}
+
+export PS1='\[\e[01;38m\]\u@\h\[\e[00m\] \[\e[01;32m\]'"$PROMPT_PATH"'\[\e[00m\]\[\e[00;35m\]$(__git_ps1)\[\e[00m\] \[\e[01;31m\]» $(get_exit_status)\[\e[00m\]' 
 export PS2='» '
 export TERM=xterm-256color
 
@@ -69,10 +84,12 @@ alias wgit='watch -n 0.5 --color git -c color.status=always status'
 alias wlog='watch -n 0.5 --color -n1 git --no-pager log --color --oneline --graph -20'
 alias activate='source venv/bin/activate'
 alias tt='tree'
+alias tg='toggle_path'
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias uuidgen='uuidgen | tr A-F a-f'
 fi
 alias sshls='cat ~/.ssh/config'
+alias g='git'
 
 # Delta with git, accept args just like git diff
 function ddiff() {
@@ -118,3 +135,11 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(direnv hook bash)"
 
+
+# pnpm
+export PNPM_HOME="/Users/hung/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
