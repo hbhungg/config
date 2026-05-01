@@ -44,7 +44,9 @@
   p = push
   cn = commit
   c = commit
+  a = add
   sync = !git switch main && git pull && git switch - && git merge main
+  w = worktree
 
 [filter "lfs"]
   smudge = git-lfs smudge -- %f
