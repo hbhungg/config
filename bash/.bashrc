@@ -90,6 +90,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 alias sshls='cat ~/.ssh/config'
 alias g='git'
+alias fm='cd ~/work/fluency-monorepo/'
 
 # Delta with git, accept args just like git diff
 function ddiff() {
