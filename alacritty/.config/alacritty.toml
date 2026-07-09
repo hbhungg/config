@@ -53,4 +53,7 @@ dynamic_padding = true
 bindings = [{ mouse = "Middle", action = "PasteSelection" }]
 
 [keyboard]
-bindings = [ { key = "Tab", mods = "Control", action = "SelectNextTab" } ]
+bindings = [ 
+  { key = "Tab", mods = "Control", action = "SelectNextTab" },
+  { key = "Return", mods = "Shift", chars = "\u001b\r" }
+]
