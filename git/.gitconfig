@@ -7,6 +7,11 @@
   editor = nvim
   compression = 9
   preloadindex = true
+  ignorecase = false
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
 
 [init]
   defaultBranch = main
@@ -26,11 +31,23 @@
   default = simple
   autoSetupRemote = true
 
+[fetch]
+  prune = true
+
 [diff]
   algorithm = histogram
   colorMoved = plain
   mnemonicPrefix = true
   renames = true
+
+[delta]
+  dark = true
+  features = side-by-side
+  syntax-theme = ansi
+  file-style = red bold ul
+
+[merge]
+  conflictStyle = zdiff3
 
 [branch]
   sort = -committerdate
@@ -40,14 +57,17 @@
 
 [alias]
   st = status
-  lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+  d = diff
+  dc = diff --cached
   p = push
   cn = commit
   c = commit
   a = add
-  sync = !git switch main && git pull && git switch - && git merge main
   w = worktree
+  lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+  sync = !git switch main && git pull && git switch - && git merge main
   retard = !git fetch origin && git reset --hard origin/main
+  conflicts = grep -nE '^<<<<<<< |^>>>>>>> '
 
 [filter "lfs"]
   smudge = git-lfs smudge -- %f
