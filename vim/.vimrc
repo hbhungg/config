@@ -20,6 +20,7 @@ set expandtab
 set backspace=indent,eol,start
 " Line numbers
 set number
+set relativenumber
 set autoindent
 set laststatus=2
 " Instant esc, uncomment if the esc feel slow but will probably cause by other stuff

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Battery_state</key>
+	<false/>
+	<key>CPU_barChart_position</key>
+	<integer>3</integer>
+	<key>CPU_label_position</key>
+	<integer>1</integer>
+	<key>CPU_lineChart_position</key>
+	<integer>2</integer>
+	<key>CPU_mini_alignment</key>
+	<string>center</string>
+	<key>CPU_mini_color</key>
+	<string>utilization</string>
+	<key>CPU_mini_label</key>
+	<true/>
+	<key>CPU_mini_position</key>
+	<integer>0</integer>
+	<key>CPU_pieChart_position</key>
+	<integer>4</integer>
+	<key>CPU_state</key>
+	<true/>
+	<key>CPU_tachometer_position</key>
+	<integer>5</integer>
+	<key>CPU_updateInterval</key>
+	<integer>2</integer>
+	<key>CPU_updateTopInterval</key>
+	<integer>2</integer>
+	<key>CPU_widget</key>
+	<string>mini</string>
+	<key>CombinedModules</key>
+	<true/>
+	<key>Disk_state</key>
+	<false/>
+	<key>GPU_barChart_position</key>
+	<integer>3</integer>
+	<key>GPU_gpu</key>
+	<string>Apple M1 Pro</string>
+	<key>GPU_label_position</key>
+	<integer>1</integer>
+	<key>GPU_lineChart_position</key>
+	<integer>2</integer>
+	<key>GPU_mini_alignment</key>
+	<string>center</string>
+	<key>GPU_mini_color</key>
+	<string>utilization</string>
+	<key>GPU_mini_label</key>
+	<true/>
+	<key>GPU_mini_position</key>
+	<integer>0</integer>
+	<key>GPU_showType</key>
+	<true/>
+	<key>GPU_state</key>
+	<true/>
+	<key>GPU_tachometer_position</key>
+	<integer>4</integer>
+	<key>GPU_updateInterval</key>
+	<integer>2</integer>
+	<key>GPU_widget</key>
+	<string>mini</string>
+	<key>LaunchAtLoginNext</key>
+	<true/>
+	<key>NSNavPanelExpandedSizeForSaveMode</key>
+	<string>{800, 448}</string>
+	<key>NSNavPanelExpandedStateForSaveMode</key>
+	<true/>
+	<key>NSStatusItem Preferred Position CombinedModules</key>
+	<real>635</real>
+	<key>NSStatusItem Restore Position CPU_mini</key>
+	<integer>559</integer>
+	<key>NSStatusItem Restore Position GPU_mini</key>
+	<integer>512</integer>
+	<key>NSStatusItem Restore Position Network_speed</key>
+	<integer>663</integer>
+	<key>NSStatusItem Restore Position RAM_memory</key>
+	<integer>616</integer>
+	<key>NSStatusItem Restore Position RAM_mini</key>
+	<integer>606</integer>
+	<key>NSToolbar Configuration eu.exelban.Stats.Settings.Toolbar</key>
+	<dict>
+		<key>TB Display Mode</key>
+		<integer>1</integer>
+		<key>TB Icon Size Mode</key>
+		<integer>1</integer>
+		<key>TB Is Shown</key>
+		<true/>
+		<key>TB Size Mode</key>
+		<integer>1</integer>
+	</dict>
+	<key>NSWindow Frame NSNavPanelAutosaveName</key>
+	<string>628 556 800 448 0 0 2056 1285 </string>
+	<key>Network_reader</key>
+	<string>interface</string>
+	<key>Network_speed_icon</key>
+	<string>arrows</string>
+	<key>Network_speed_mode</key>
+	<string>twoRows</string>
+	<key>Network_speed_monochrome</key>
+	<false/>
+	<key>Network_speed_reverseOrder</key>
+	<false/>
+	<key>Network_speed_transparentIcons</key>
+	<false/>
+	<key>Network_speed_valueColor</key>
+	<true/>
+	<key>Network_state</key>
+	<true/>
+	<key>Network_widgetActivationThreshold</key>
+	<integer>0</integer>
+	<key>RAM_barChart_position</key>
+	<integer>3</integer>
+	<key>RAM_label_position</key>
+	<integer>5</integer>
+	<key>RAM_lineChart_position</key>
+	<integer>2</integer>
+	<key>RAM_memory_orderReversed</key>
+	<false/>
+	<key>RAM_memory_position</key>
+	<integer>1</integer>
+	<key>RAM_memory_symbols</key>
+	<true/>
+	<key>RAM_mini_alignment</key>
+	<string>center</string>
+	<key>RAM_mini_color</key>
+	<string>utilization</string>
+	<key>RAM_mini_position</key>
+	<integer>0</integer>
+	<key>RAM_pieChart_position</key>
+	<integer>6</integer>
+	<key>RAM_state</key>
+	<true/>
+	<key>RAM_tachometer_position</key>
+	<integer>4</integer>
+	<key>RAM_updateInterval</key>
+	<integer>1</integer>
+	<key>RAM_widget</key>
+	<string>mini</string>
+	<key>Sensors_sensors_size</key>
+	<false/>
+	<key>Sensors_state</key>
+	<false/>
+	<key>dockIcon</key>
+	<false/>
+	<key>fan_0_mode</key>
+	<integer>0</integer>
+	<key>remote_id</key>
+	<string>E3B82D7C-AE2A-4BEC-A313-FD01AEA4F437</string>
+	<key>runAtLoginInitialized</key>
+	<true/>
+	<key>sensor_Average CPU</key>
+	<true/>
+	<key>sensor_Average GPU</key>
+	<true/>
+	<key>sensor_F0Ac</key>
+	<false/>
+	<key>sensor_F1Ac</key>
+	<false/>
+	<key>sensor_Fastest Fan</key>
+	<false/>
+	<key>sensor_Hottest CPU</key>
+	<false/>
+	<key>sensor_PPBR</key>
+	<false/>
+	<key>sensor_TB1T</key>
+	<false/>
+	<key>sensor_TB2T</key>
+	<false/>
+	<key>sensor_TW0P</key>
+	<false/>
+	<key>sensor_TaLP</key>
+	<false/>
+	<key>sensor_TaRF</key>
+	<false/>
+	<key>sensor_Tp01</key>
+	<false/>
+	<key>sensor_Tp05</key>
+	<false/>
+	<key>sensor_Tp09</key>
+	<false/>
+	<key>sensor_Tp0T</key>
+	<false/>
+	<key>telemetry</key>
+	<true/>
+	<key>updater_check_ts</key>
+	<integer>1767780250</integer>
+	<key>version</key>
+	<string>2.11.62</string>
+</dict>
+</plist>

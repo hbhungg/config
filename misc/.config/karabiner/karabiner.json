@@ -4,20 +4,6 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Change tab to alt if pressed with other keys, to tab if pressed alone.",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "tab",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "key_code": "left_alt" }],
-                                "to_if_alone": [{ "key_code": "tab" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Change caps_lock to control if pressed with other keys, to escape if pressed alone.",
                         "manipulators": [
                             {
@@ -33,7 +19,6 @@
                     },
                     {
                         "description": "Change right_command+hjkl to arrow keys",
-                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
