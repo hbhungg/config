@@ -21,8 +21,12 @@ fi
 [[ -r "${HOME}/.completion-for-pnpm.bash" ]] && . "${HOME}/.completion-for-pnpm.bash"
 [[ -r "${HOME}/.completion-for-provision.bash" ]] && . "${HOME}/.completion-for-provision.bash"
 
-# Added brew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# Brew env (inlined output of `brew shellenv` — avoids ~70ms ruby startup)
+export HOMEBREW_PREFIX="/opt/homebrew"
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+export HOMEBREW_REPOSITORY="/opt/homebrew"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
 
 # Bash prompt personalize
 get_exit_status(){
@@ -88,9 +92,9 @@ alias sshls='cat ~/.ssh/config'
 alias g='git'
 alias fm='cd ~/work/fluency-monorepo/'
 
-# fzf
-# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-eval "$(fzf --bash)"
+# fzf (static files shipped with fzf; same content as `eval "$(fzf --bash)"` but no subprocess)
+source /opt/homebrew/opt/fzf/shell/key-bindings.bash
+source /opt/homebrew/opt/fzf/shell/completion.bash
 export FZF_DEFAULT_OPTS='
     --color=hl:#dc322f,hl+:#dc322f,pointer:#FF0000'
 
@@ -104,6 +108,7 @@ export PATH="$HOME/bin/:$PATH"
 export PATH="$HOME/.local/bin/:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="$PATH:/bin:/usr/bin:/usr/local/bin:/usr/sbin:/sbin"
+export PATH="/Users/hung/.bun/bin:$PATH"
 # source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 # source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 # chruby ruby-3.1.3
@@ -122,7 +127,9 @@ source ~/.orbstack/shell/init.bash 2>/dev/null || :
 export PATH="$HOME/.local/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh" --no-use  # This loads nvm (--no-use skips slow auto-activation; run `nvm use` when needed)
+# Pinned nvm node on PATH (fast, avoids ~800ms `nvm use`) — update version here after `nvm install`
+[ -d "$NVM_DIR/versions/node/v24.7.0/bin" ] && export PATH="$NVM_DIR/versions/node/v24.7.0/bin:$PATH"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 eval "$(direnv hook bash)"
