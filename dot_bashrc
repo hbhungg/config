@@ -144,3 +144,22 @@ esac
 # pnpm end
 
 export TG_PROVIDER_CACHE=1
+export TG_LOG_CUSTOM_FORMAT="%msg"
+
+if type brew &>/dev/null
+then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
+  then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
+    do
+      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+    done
+  fi
+fi
+
+
+# vim-herdr-navigation: forward ctrl+hjkl into fzf instead of switching panes
+export HERDR_NAV_PASSTHROUGH_RE='^fzf$'
