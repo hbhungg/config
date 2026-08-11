@@ -1,0 +1,4 @@
+prefix_rule(pattern=["cargo", "test"], decision="allow")
+prefix_rule(pattern=["uv", "run", "pytest"], decision="allow")
+prefix_rule(pattern=["git", "status", "--short", "--branch"], decision="allow")
+prefix_rule(pattern=["git", "status", "--short"], decision="allow")

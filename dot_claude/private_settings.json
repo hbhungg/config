@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "model": "claude-fable-5",
+  "permissions": {
+    "ask": [
+      "Edit(~/.claude/projects/**/memory/**)"
+    ]
+  },
+  "skillOverrides": {
+    "amazon-bedrock": "off",
+    "aws-blocks": "off",
+    "aws-cdk": "off",
+    "aws-cloudformation": "off",
+    "aws-deployment": "off",
+    "launch-with-aws": "off",
+    "aws-sdk-swift-usage": "off",
+    "find-skills": "off"
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": []
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/hung/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "datadog@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "vercel@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {},
+  "alwaysThinkingEnabled": true,
+  "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark",
+  "feedbackSurveyState": {
+    "lastShownTime": 1754012754832
+  }
+}

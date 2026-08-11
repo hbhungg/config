@@ -1,0 +1,48 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "bash /Users/hung/.tmux/plugins/tmux-agent-sidebar/hook.sh codex activity-log",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bash /Users/hung/.tmux/plugins/tmux-agent-sidebar/hook.sh codex session-start",
+            "type": "command"
+          }
+        ],
+        "matcher": "startup|resume"
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "bash /Users/hung/.tmux/plugins/tmux-agent-sidebar/hook.sh codex stop",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "command": "bash /Users/hung/.tmux/plugins/tmux-agent-sidebar/hook.sh codex user-prompt-submit",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      }
+    ]
+  }
+}

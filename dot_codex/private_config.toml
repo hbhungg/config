@@ -1,0 +1,32 @@
+model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+[projects."/Users/hung/work/fluency-monorepo"]
+trust_level = "trusted"
+
+[projects."/Users/hung/fun/baz"]
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+"gpt-5.6-sol" = 4
+
+[features]
+codex_hooks = true
+
+[hooks.state]
+
+[hooks.state."/Users/hung/.codex/hooks.json:post_tool_use:0:0"]
+trusted_hash = "sha256:fd1b307f6c500592df39c02d2d82fef5bd720106873dfe5599281435c7225b69"
+
+[hooks.state."/Users/hung/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:e3f2d5e353ac924a217e11aa0cc8cbec9de75775ae1e8816b49e901377ad4171"
+
+[hooks.state."/Users/hung/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:9bd513e1d3d500b483612bcb74ce7bda285deed2254cea60c358d9c7a95e4073"
+
+[hooks.state."/Users/hung/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:91915ae5d3fb73db67f3e5ec6b3dae8d7ff905e673716e0ae2ce0699ce0ecca5"
+
+[mcp_servers.aws-mcp]
+command = "uvx"
+args = ["mcp-proxy-for-aws@latest", "https://aws-mcp.us-east-1.api.aws/mcp", "--metadata", "INSTALL_SOURCE=aws-cli"]
