@@ -1,0 +1,49 @@
+{
+  "workbench.sideBar.location": "right",
+  "editor.fontFamily": "SF Mono",
+  "editor.tabSize": 2,
+  "remote.SSH.configFile": "/Users/hung/.ssh/config",
+  "remote.SSH.defaultExtensions": [
+    "ms-python.python",
+    "ms-toolsai.jupyter-renderers",
+    "ms-toolsai.jupyter-keymap",
+    "ms-toolsai.jupyter"
+  ],
+  "python.analysis.typeCheckingMode": "basic",
+  "workbench.colorTheme": "Dark Modern",
+  "editor.lineNumbers": "relative",
+
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/.next/**": true,
+    "**/.nuxt/**": true,
+    "**/bin/**": true,
+    "**/obj/**": true,
+    "**/.terragrunt-cache/**": true,
+    "**/.terraform/**": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/dist": true,
+    "**/build": true
+  },
+  "json.schemaDownload.trustedDomains": {
+    "https://developer.microsoft.com/json-schemas/": true,
+    "https://json-schema.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://schemastore.azurewebsites.net/": true,
+    "https://unpkg.com/knip%406/schema.json": true,
+    "https://www.schemastore.org/": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.accessibilitySupport": "off"
+}

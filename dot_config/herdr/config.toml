@@ -1,0 +1,45 @@
+onboarding = false
+
+[keys]
+prefix = "backtick"
+last_tab = "prefix+backtick"        # `` -> toggle to previously active tab (tmux last-window)
+send_prefix = "prefix+e"            # `e -> type a literal backtick
+edit_scrollback = "prefix+shift+e"  # rebound; send_prefix took its default prefix+e
+split_horizontal = "prefix+minus"
+split_vertical = "prefix+="
+
+[theme]
+name = "terminal"
+auto_switch = false
+
+[ui]
+prompt_new_tab_name = false
+
+[update]
+channel = "stable"
+version_check = false
+manifest_check = false
+
+[[keys.command]]
+key = "ctrl+h"
+type = "plugin_action"
+command = "vim-herdr-navigation.left"
+description = "navigate left (vim/herdr)"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "plugin_action"
+command = "vim-herdr-navigation.down"
+description = "navigate down (vim/herdr)"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "plugin_action"
+command = "vim-herdr-navigation.up"
+description = "navigate up (vim/herdr)"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "plugin_action"
+command = "vim-herdr-navigation.right"
+description = "navigate right (vim/herdr)"
