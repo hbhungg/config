@@ -65,7 +65,8 @@
   a = add
   w = worktree
   lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
-  sync = !git switch main && git pull && git switch - && git merge main
+  # sync = !git switch main && git pull && git switch - && git merge main
+  sync = !git fetch origin && git merge origin/main
   retard = !git fetch origin && git reset --hard origin/main
   conflicts = grep -nE '^<<<<<<< |^>>>>>>> '
 
