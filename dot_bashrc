@@ -54,8 +54,6 @@ toggle_path() {
 
 export PS1='\[\e[01;38m\]\u@\h\[\e[00m\] \[\e[01;32m\]'"$PROMPT_PATH"'\[\e[00m\]\[\e[00;35m\]$(__git_ps1)\[\e[00m\] \[\e[01;31m\]» $(get_exit_status)\[\e[00m\]' 
 export PS2='» '
-export TERM=xterm-256color
-
 
 # Vi mode
 set -o vi

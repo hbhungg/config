@@ -1,0 +1,42 @@
+# Mirrored from ~/.config/alacritty/alacritty.toml
+
+font-family = SF Mono
+font-size = 12
+# Alacritty: font.offset.y = 3 (shifts glyphs down 3px in the cell)
+adjust-font-baseline = -3
+# Thicker strokes, closer to Alacritty's CoreText rendering (macOS only)
+font-thicken = true
+
+# Desktop notification when a long command finishes in an unfocused pane
+# (requires shell integration, enabled automatically for bash/zsh/fish)
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = bell,notify
+notify-on-command-finish-after = 30s
+
+# Primary colors
+background = #1E1E1E
+foreground = #FFFFFF
+
+# Cursor
+cursor-color = #FFFFFF
+cursor-text = #1E1E1E
+
+# Normal colors (ANSI 0-7)
+palette = 0=#666666
+palette = 1=#D64A2E
+palette = 2=#40C731
+palette = 3=#999900
+palette = 4=#007ACC
+palette = 5=#E44CE1
+palette = 6=#40C5D1
+palette = 7=#FFFFFF
+
+# Bright colors (ANSI 8-15)
+palette = 8=#888888
+palette = 9=#D64A2E
+palette = 10=#40C731
+palette = 11=#999900
+palette = 12=#007ACC
+palette = 13=#E44CE1
+palette = 14=#40C5D1
+palette = 15=#FFFFFF
