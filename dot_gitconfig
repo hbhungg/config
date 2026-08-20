@@ -75,3 +75,5 @@
   process = git-lfs filter-process
   required = true
   clean = git-lfs clean -- %f
+[includeIf "hasconfig:remote.*.url:git@github.com:farmorsoftware/fluency-monorepo.git"]
+	path = ~/.gitconfig-fluency
