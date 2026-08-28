@@ -47,4 +47,9 @@ palette = 13=#E44CE1
 palette = 14=#40C5D1
 palette = 15=#FFFFFF
 
+<<<<<<< Updated upstream
 window-vsync = false
+||||||| Stash base
+=======
+command = /opt/homebrew/bin/bash
+>>>>>>> Stashed changes
