@@ -20,6 +20,10 @@ background = #1E1E1E
 foreground = #FFFFFF
 
 # Cursor
+cursor-style = block
+cursor-style-blink = false
+# Shell integration forces a bar cursor at the prompt; disable that
+shell-integration-features = no-cursor
 cursor-color = #FFFFFF
 cursor-text = #1E1E1E
 
@@ -42,3 +46,5 @@ palette = 12=#007ACC
 palette = 13=#E44CE1
 palette = 14=#40C5D1
 palette = 15=#FFFFFF
+
+window-vsync = false
